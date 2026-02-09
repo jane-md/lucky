@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Clarisse</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock">
+  <div class="lock-card">
+    <h1>Seven months with you</h1>
+    <p>And many more to come</p>
+    <input type="password" id="pass" placeholder="Password">
+    <button onclick="unlock()">Enter</button>
+    <span id="error"></span>
+  </div>
+</div>
+
+<!-- MOBILE HAMBURGER BUTTON -->
+<div id="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- OVERLAY -->
+<div id="overlay" onclick="closeMenu()"></div>
+
+<!-- FLOWER MODAL -->
+<div id="flower-modal">
+  <div class="flower-card">
+    <img src="flower.jpg" alt="Flower">
+    <p>Do you love me?</p>
+    <div class="flower-buttons">
+      <button onclick="goHome()">Yes</button>
+      <button onclick="goHome()">Yes</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP CONTAINER -->
+<div id="app">
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+
+  <div class="logo">
+    <img src="profile.jpg" alt="Us">
+    <h2>Jane & Clarisse</h2>
+  </div>
+
+  <!-- Sidebar Menu Buttons -->
+<div class="menu-buttons">
+  <button data-section="home" onclick="openSection('home')">Home</button>
+  <button data-section="letter" onclick="openSection('letter')">Letter</button>
+  <button data-section="movie" onclick="openSection('movie')">Movie</button>
+  <button data-section="gallery" onclick="openSection('gallery')">Memories</button>
+ 
+</div>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+<main>
+
+<section id="home" class="section">
+  <div class="hero">
+    <!-- Heart pendant -->
+    <img src="heart.png" alt="Heart" class="heart-pendant">
+  
+    <h1>Happy 7th monthsary, pretty</h1>
+    <p>You deserve this because you mean everything to me.</p>
+    <button onclick="openSection('letter')">Start</button>
+  </div>
+</section>
+
+<section id="letter" class="section">
+  <div class="card" id="letter-card">
+    <h1>For my baby</h1>
+
+    <!-- Envelope -->
+    <div id="envelope-container" class="center">
+      <img src="envelope.png" alt="Envelope" class="envelope">
+      <button onclick="openLetter()" class="open-envelope-btn">Open</button>
+    </div>
+
+    <!-- Letter content (hidden initially) -->
+    <div id="letter-content" style="display:none;">
+      <div id="type" class="letter-text"></div>            
+    </div>
+  </div>
+</section>
+
+<section id="movie" class="section">
+  <div class="card wide" id="movie-card">
+
+    <!-- Intro message -->
+    <div id="movie-intro" class="center">
+      <p>Do you want to see how cute we are together? (wink)</p>
+      <img src="wink.png" alt="Wink" class="wink-img">
+      <button onclick="showMovie()">Watch Now</button>
+    </div>
+
+    <!-- Video (hidden initially) -->
+    <div id="movie-video" style="display:none;">
+      <video controls poster="poster.jpg">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+  </div>
+</section><section id="gallery" class="section">
+  <div class="card game-></div>rd">
+      <h2 class="game-title">7 Months (Tap each photo)</h2><br>
+      <div class="puzzle-container">
+          
+           
+          
+        <div class="puzzle-piece" data-msg="Aww, remember this? Our first date, baby">
+            <img class="puzzle-back" src="heart-small.png">
+  <img class="puzzle-front" src="pic1.png">
+            </div>
+        <div class="puzzle-piece" data-msg="First sleepover">
+            <img class="puzzle-back" src="heart-small.png">
+  <img class="puzzle-front" src="pic2.png">
+        </div>
+        <div class="puzzle-piece" data-msg="First sleepover in Manila">
+            <img class="puzzle-back" src="heart-small.png">
+  <img class="puzzle-front" src="pic3.png">
+        </div>
+        <div class="puzzle-piece" data-msg="SM date again">
+            <img class="puzzle-back" src="heart-small.png">
+  <img class="puzzle-front" src="pic4.png">
+        </div>
+        <div class="puzzle-piece" data-msg="Quick date HAHAHAHA"><img class="puzzle-back" src="heart-small.png">
+  <img class="puzzle-front" src="pic5.png"></div>
+        <div class="puzzle-piece" data-msg="Our second time at Luxelite">
+            <img class="puzzle-back" src="heart-small.png">
+  <img class="puzzle-front" src="pic6.png">
+        </div>
+        <div class="puzzle-piece" data-msg="Manila date hehe">
+            <img class="puzzle-back" src="heart-small.png">
+  <img class="puzzle-front" src="pic7.png">
+        </div>
+      </div>
+      <div class="puzzle-message"></div><br>
+    <h2 class="game-title">With YOU</h2><br>
+    </div>
+
+ 
+ 
+
+
+
+    <!-- Game 2: Memory Match -->
+    <div class="card game-card">
+      <h2 class="game-title">Oops... (Tap each photo)</h2>
+      <div class="memory-container" id="memory-container">
+          
+           
+          
+        <div class="memory-container">
+  <div class="memory-card" data-pair="1">
+      <img class="back" src="heart-small.png">
+  <img class="front" src="pic11.jpg">
+  </div>
+  <div class="memory-card" data-pair="3">
+      <img class="back" src="heart-small.png">
+  <img class="front" src="pic33.jpg">
+  </div>
+  <div class="memory-card" data-pair="4">
+      <img class="back" src="heart-small.png">
+  <img class="front" src="pic44.jpg">
+  </div>
+  <div class="memory-card" data-pair="3">
+      <img class="back" src="heart-small.png">
+  <img class="front" src="pic33.jpg">
+      </div>
+  <div class="memory-card" data-pair="1">
+      <img class="back" src="heart-small.png">
+  <img class="front" src="pic11.jpg">
+  </div>
+  <div class="memory-card" data-pair="2">
+      <img class="back" src="heart-small.png">
+  <img class="front" src="pic22.jpg">
+  </div>
+  <div class="memory-card" data-pair="2">
+      <img class="back" src="heart-small.png">
+  <img class="front" src="pic22.jpg">
+  </div>
+  <div class="memory-card" data-pair="4">
+      <img class="back" src="heart-small.png">
+  <img class="front" src="pic44.jpg">
+  </div>
+</div>
+      </div>
+      <p class="memory-message"></p>
+    </div>
+<br></br>
+    
+    
+
+  
+
+</section>
+<section id="gift" class="section">
+  <div class="card center" id="gift-card">
+    <h1>Your Surprise</h1>
+
+    <!-- Static Gift Display -->
+    <div id="gift-display">
+      <!-- Flower -->
+      <img src="flower.jpg" alt="Flower" style="width:150px; border-radius:15px; margin-bottom:15px;">
+
+      <!-- Letter (envelope) -->
+      <img src="envelope.png" alt="Letter" style="width:120px; margin-bottom:15px;">
+
+      <!-- Virtual polaroid -->
+      <div id="polaroid">
+        <div style="display:flex; gap:5px; justify-content:center;">
+          <img src="ourpic1.jpg" style="width:80px; height:80px; border-radius:8px;">
+          <img src="ourpic2.jpg" style="width:80px; height:80px; border-radius:8px;">
+          <img src="ourpic3.jpg" style="width:80px; height:80px; border-radius:8px;">
+        </div>
+        <div style="margin-top:5px; font-weight:bold; font-size:16px;">I ❤️ YOU</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="final" class="section">
+  <div class="card center final-card">
+
+    <!-- Polaroid Camera Image (Top) -->
+    <div class="polaroid-cam">
+      <img src="cam-photo.jpg" alt="Polaroid Cam">
+    </div>
+
+    <!-- Audio Player (Spotify-style) -->
+    <div class="audio-player">
+      <audio controls id="final-audio">
+        <source src="music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+      <button id="play-btn" onclick="document.getElementById('final-audio').play()">
+        Play
+      </button>
+    </div>
+
+    <!-- Song Description (Lower right) -->
+    <div class="song-description">
+      <p>
+        Clarisse, this is the song that reminds me of you. ❤️
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
