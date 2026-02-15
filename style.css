@@ -1,0 +1,655 @@
+:root{  
+  --bg:#f9f7f2;  
+  --card:#ffffff;  
+  --text:#1f2933;  
+  --muted:#6b7280;  
+  --accent:#111827;  
+  --border:#e5e7eb;  
+}  
+
+*{box-sizing:border-box;font-family:Inter,sans-serif;}  
+body{margin:0;background:var(--bg);color:var(--text);}  
+
+/* LOGO */  
+.logo{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:12px;}  
+.logo img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid var(--border);}  
+.logo h2{font-size:13px;font-weight:600;letter-spacing:.4px;}  
+
+/* LOCK SCREEN */  
+#lock{position:fixed;inset:0;background:var(--bg);display:flex;justify-content:center;align-items:center;z-index:3000;}  
+.lock-card{background:var(--card);padding:40px;border-radius:16px;width:320px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.1);}  
+.lock-card input,.lock-card button{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid var(--border);}  
+.lock-card button{background:var(--accent);color:white;cursor:pointer;}  
+
+/* APP CONTAINER */  
+#app{display:none;height:100vh;display:flex;}  
+
+/* SIDEBAR */  
+aside{width:220px;background:var(--card);border-right:1px solid var(--border);padding:20px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;}  
+
+.menu-buttons{display:flex;flex-direction:column;gap:8px;}  
+.menu-buttons button{display:block;width:100%;text-align:left;padding:12px 15px;border-radius:8px;background:none;border:none;cursor:pointer;color:var(--text);transition:0.2s;}  
+.menu-buttons button:hover{background:var(--bg);}  
+.menu-buttons button.active{background:var(--bg);font-weight:600;border-left:4px solid var(--accent);}  
+
+/* MAIN CONTENT */  
+main{flex:1;padding:40px;overflow:auto;}  
+.section{display:none;animation:fade .4s;}  
+.section.active{display:block;}  
+
+.hero{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;text-align:center;position:relative;}  
+.hero h1{font-family:'Playfair Display',serif;font-size:45px;margin-top:180px;margin-bottom:4px;}  
+.hero button{padding:12px 24px;border:none;background:var(--accent);color:white;border-radius:8px;cursor:pointer;}  
+
+/* Heart pendant */
+/* Heart pendant */
+.heart-pendant{
+  position:absolute;
+  top:-10px;
+  left:5px;
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  z-index:10;   /* Lower than sidebar */
+  pointer-events:none; /* So it won't block clicks */
+} 
+
+.card{background:var(--card);border-radius:20px;padding:40px;max-width:900px;margin:200px auto;box-shadow:0 10px 30px rgba(0,0,0,.08);}  
+.wide{max-width:1100px;}  
+.center{text-align:center;}  
+h1{font-family:'Playfair Display',serif;}  
+video{width:100%;border-radius:12px;}  
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;}  
+.grid img{width:100%;border-radius:10px;transition:.3s;}  
+.grid img:hover{transform:scale(1.05);}  
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;margin-top:20px;}  
+.stats div{background:var(--bg);padding:20px;border-radius:12px;text-align:center;font-weight:600;}  
+#box{font-size:90px;cursor:pointer;transition:.3s;}  
+#box:hover{transform:scale(1.2);}  
+.timeline{margin-top:20px;}  
+.timeline div{padding:15px;background:var(--bg);margin:10px 0;border-radius:10px;}  
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}  
+
+/* MOBILE MENU */  
+#mobile-menu-btn{display:none;position:fixed;top:20px;right:20px;font-size:22px;cursor:pointer;z-index:1001;color:var(--accent);background:var(--card);padding:8px 12px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.15);}  
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:999;transition:0.3s;}  
+
+/* FLOWER MODAL */  
+#flower-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;justify-content:center;align-items:center;}  
+.flower-card{background:var(--card);border-radius:20px;padding:30px;text-align:center;max-width:350px;box-shadow:0 15px 40px rgba(0,0,0,.2);}  
+.flower-card img{width:150px;height:150px;border-radius:50%;margin-bottom:20px;object-fit:cover;}  
+.flower-card p{font-size:18px;font-weight:500;margin-bottom:15px;}  
+.flower-buttons button{padding:10px 20px;margin:0 10px;border:none;border-radius:8px;background:var(--accent);color:white;cursor:pointer;transition:.3s;}  
+.flower-buttons button:hover{background:#333;}  
+
+/* Letter Envelope & Paper */
+
+/* LETTER ENVELOPE & PAPER */
+
+/* Envelope image */
+.envelope {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* Open button under envelope */
+.open-envelope-btn {
+  padding: 10px 20px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.open-envelope-btn:hover {
+  background: #333;
+}
+
+/* Letter text styling */
+.letter-text {
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 15px;
+  white-space: pre-wrap; /* preserve line breaks */
+}
+
+/* Animations */
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
+}
+
+@keyframes paperOpen{
+  from{
+    opacity:0;
+    transform:scale(.9) translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeIn{
+  to{opacity:1;}
+}
+
+/* Soft floating animation */
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0);}
+}
+
+/* RESPONSIVE */  
+@media(max-width:800px){  
+  #app{flex-direction:column;}  
+  aside{position:fixed;top:0;right:-260px;width:240px;height:100%;background:var(--card);border-left:1px solid var(--border);padding:20px;flex-direction:column;gap:10px;overflow-y:auto;transition:0.3s;z-index:1000;}  
+  aside.active{right:0;}  
+  #overlay.active{display:block;}  
+  #mobile-menu-btn{display:block;}  
+  main{padding:20px;}  
+  .hero h1{font-size:36px;}  
+}
+
+#movie-intro p {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Caveat', cursive; /* cute cursive font */
+}
+
+#movie-intro button {
+  padding: 10px 25px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+#movie-intro button:hover {
+  background: #333;
+}
+
+#movie-video video {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.wink-img {
+  width: 100px;       /* adjust size as needed */
+  margin: 10px auto; /* space above/below and center */
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Games Section */
+#gallery .card {
+  margin: 60px auto; /* smaller top & bottom margin */
+}
+
+/* PUZZLE GAME */
+.puzzle-container {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 10px;
+  justify-content: center;
+  margin: 15px 0;
+  position: relative;
+}
+
+.puzzle-piece {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  position: relative;
+  perspective: 600px;
+  
+}
+
+.puzzle-piece img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+.puzzle-piece:hover {
+  transform: scale(1.1);
+}
+
+.puzzle-front {
+  transform: rotateY(180deg);
+}
+
+.puzzle-piece.flipped .puzzle-front {
+  transform: rotateY(0deg);
+}
+
+.puzzle-piece.flipped .puzzle-back {
+  transform: rotateY(180deg);
+}
+
+/* center the last piece */
+.puzzle-piece.last-piece {
+  grid-column: 2 / 3;
+}
+.puzzle-message {
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  color: var(--accent);
+  text-align: center;
+  margin-top: 10px;
+  min-height: 24px;
+}
+
+/* MEMORY MATCH */
+/* Center Game 2 memory cards */
+.memory-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centers horizontally */
+  gap: 12px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.memory-card {
+  width: 100px;
+  height: 100px;
+  background: var(--bg);
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  perspective: 600px;
+  overflow: hidden;
+}
+
+.memory-card img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+.memory-card img.front {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.memory-card .back {
+  background: var(--bg);
+}
+
+
+.memory-card.flipped img.front {
+  transform: rotateY(0deg);
+}
+.memory-message {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 10px;
+}
+.memory-card .front {
+  transform: rotateY(180deg);
+}
+.memory-card.flipped .front {
+  transform: rotateY(0deg);
+}
+
+.memory-card.flipped .back {
+  transform: rotateY(180deg);
+}
+
+/* QUIZ */
+/* Quiz container */
+.quiz-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.quiz-instruction {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.quiz-dropzone {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.drop-slot {
+  width: 80px;
+  height: 100px;
+  background: var(--bg);
+  border: 2px dashed var(--accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.quiz-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.quiz-item {
+  width: 80px;
+  cursor: grab;
+}
+
+.quiz-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.quiz-item.dragging {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+.quiz-item:hover {
+  background: var(--accent);
+  color: white;
+}
+.quiz-message {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* GAME 3 - DATE MATCH */
+
+.date-boxes{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.date-box{
+  width:90px;
+  height:90px;
+  background:var(--bg);
+  border:2px dashed var(--border);
+  border-radius:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:600;
+  font-size:13px;
+  text-align:center;
+}
+
+.date-box.hovered{
+  background:#fff4f8;
+  border-color:#ff9ecb;
+}
+
+.date-photos{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.drag-photo{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:12px;
+  cursor:grab;
+  border:2px solid var(--border);
+  transition:0.2s;
+}
+
+.drag-photo:active{
+  cursor:grabbing;
+  transform:scale(0.95);
+}
+
+#date-message{
+  margin-top:20px;
+  font-weight:600;
+  text-align:center;
+}
+
+/* GIFT SECTION */
+#gift-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+#gift-display img {
+  border-radius: 12px;
+}
+
+#polaroid {
+  display: inline-block;
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#polaroid img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+/* CONTRACT SECTION */
+
+/* CONTRACT SECTION */
+/* CONTRACT SECTION FIX */
+.contract-paper {
+  background: #fffdf7;
+  border: 1px solid #e6dcc8;
+  max-width: 750px;
+  font-family: "Playfair Display", serif;
+  padding: 30px;
+  margin: 40px auto; /* reduced margin */
+}
+
+.contract-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contract-body {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.contract-body ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.contract-body li {
+  margin-bottom: 6px;
+}
+
+/* Signature Area */
+.signature-area {
+  display: flex;
+  flex-direction: column; /* stack on mobile */
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.signature-box {
+  width: 100%;
+}
+
+.signature-box p {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+#signature-input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid #111;
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  outline: none;
+  background: transparent;
+}
+
+/* Save Button */
+#save-contract {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Loading */
+#contract-loading {
+  display: none;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  animation: pulse 1.5s infinite;
+}
+
+/* Final Signature Display */
+#final-signature {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: var(--accent);
+}
+
+/* Each game card spacing */
+/* Each game card spacing */
+.game-card {
+  margin: 40px auto; /* space between cards */
+  padding: 30px;     /* inside padding */
+  border-radius: 20px;
+  background: var(--card);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Small hearts floating on each card */
+.heart-card {
+  position: absolute;
+  width: 60px;      /* small size */
+  height: 60px;
+  z-index: 0;       /* behind puzzle pieces */
+  pointer-events: none; /* clicks go through */
+}
+.puzzle-piece {
+  position: relative;  /* already works with grid items */
+  z-index: 1;          /* ensure above hearts */
+}
+
+/* Final Card */
+.final-card {
+  position: relative; /* to position description */
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--card);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  text-align: center;
+}
+
+/* Polaroid Camera Image */
+.polaroid-cam img {
+  width: 300px; /* adjust as needed */
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* Audio Player */
+.audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.audio-player audio {
+  width: 100%; /* full width of card */
+  max-width: 500px;
+  border-radius: 12px;
+  margin-bottom: 5px;
+}
+
+.audio-player button {
+  padding: 10px 25px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  margin-bottom: 70px;
+}
+
+.audio-player button:hover {
+  background: #333;
+  
+}
+
+/* Song Description (Lower right) */
+.song-description {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Playfair Display', serif; /* serif font */
+  font-size: 16px;
+  color: var(--text);
+  max-width: 250px;
+  text-align: right;
+}
